@@ -1,0 +1,11 @@
+
+services:
+  web:
+    image: nginx
+    container_name: day37-web
+    ports:
+      - "${PORT}:80"
+    environment:
+      APP_ENV: "${APP_ENV}"
+      COMPANY: "${COMPANY}"
+

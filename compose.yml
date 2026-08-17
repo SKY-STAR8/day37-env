@@ -5,7 +5,7 @@ services:
     container_name: day37-web
     ports:
       - "${PORT}:80"
-    restart: unless-stopped
+    restart: always
     environment:
       APP_ENV: "${APP_ENV}"
       COMPANY: "${COMPANY}"

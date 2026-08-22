@@ -9,4 +9,4 @@ services:
     environment:
       APP_ENV: "${APP_ENV}"
       COMPANY: "${COMPANY}"
-
+       VERSION: "v2-feature-login"

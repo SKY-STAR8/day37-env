@@ -8,5 +8,5 @@ services:
     restart: always
     environment:
       APP_ENV: "${APP_ENV}"
-      COMPANY: "${COMPANY}"
+      COMPANY: "${ABC Pvt Ltd}"
        VERSION: "v2-feature-login"

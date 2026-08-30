@@ -9,4 +9,4 @@ services:
     environment:
       APP_ENV: "${APP_ENV}"
       COMPANY: "${ABC Pvt Ltd}"
-     VERSION: "v2-feature-login"
+     VERSION: "v2-revert-demo"

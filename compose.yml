@@ -9,4 +9,8 @@ services:
     environment:
       APP_ENV: "${APP_ENV}"
       COMPANY: "${ABC Pvt Ltd}"
+<<<<<<< HEAD
      VERSION: "v2-bugfix"
+=======
+    VERSION: "v2-day53"
+>>>>>>> a268b16 (Day53 Jenkins Poll SCM test)

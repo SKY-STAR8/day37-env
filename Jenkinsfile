@@ -2,27 +2,22 @@ pipeline {
     agent any
 
     stages {
+
         stage('Checkout') {
             steps {
-                echo 'Code downloaded from GitHub'
+                echo 'Downloading latest code from GitHub'
             }
         }
 
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                echo 'Application Build Successful'
+                sh 'docker build -t day55-nginx:v2 .'
             }
         }
 
-        stage('Test') {
+        stage('Verify Docker Image') {
             steps {
-                echo 'Running Tests'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Application Deployed Successfully'
+                sh 'docker images | grep day55'
             }
         }
     }

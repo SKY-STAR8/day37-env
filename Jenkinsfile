@@ -11,13 +11,27 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t day55-nginx:v2 .'
+                sh 'docker build -t day57-nginx:v1 .'
             }
         }
 
-        stage('Verify Docker Image') {
+        stage('Deploy Container') {
             steps {
-                sh 'docker images | grep day55'
+                sh '''
+                docker stop day55-web || true
+                docker rm day55-web || true
+
+                docker run -d \
+                  --name day55-web \
+                  -p 8094:80 \
+                  day57-nginx:v1
+                '''
+            }
+        }
+
+        stage('Verify Deployment') {
+            steps {
+                sh 'docker ps | grep day55-web'
             }
         }
     }

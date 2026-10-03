@@ -2,14 +2,12 @@ services:
 
   python-app:
     build: .
-    container_name: python-app
     restart: unless-stopped
 
   nginx:
     build:
       context: .
       dockerfile: Dockerfile.nginx
-    container_name: nginx-proxy
     ports:
       - "8096:80"
     depends_on:

@@ -21,7 +21,10 @@ pipeline {
 
         stage('Verify Deployment') {
             steps {
-                sh 'docker compose ps'
+                sh '''
+                docker compose ps
+                curl -f http://localhost:8096
+                '''
             }
         }
     }

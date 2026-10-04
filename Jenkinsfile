@@ -19,27 +19,29 @@ pipeline {
             }
         }
 
-       stage('Verify Deployment') {
-    steps {
-        sh '''
-        docker compose ps
+        stage('Verify Deployment') {
+            steps {
+                sh '''
+                docker compose ps
 
-        echo "Waiting for application to become ready..."
+                echo "Waiting for application to become ready..."
 
-        for i in 1 2 3 4 5
-        do
-            if curl -f http://localhost:8096
-            then
-                echo "Application is healthy!"
-                exit 0
-            fi
+                for i in 1 2 3 4 5
+                do
+                    if curl -f http://localhost:8096
+                    then
+                        echo "Application is healthy!"
+                        exit 0
+                    fi
 
-            echo "Application not ready yet. Retrying..."
-            sleep 2
-        done
+                    echo "Application not ready yet. Retrying..."
+                    sleep 2
+                done
 
-        echo "Application health check failed!"
-        exit 1
-        '''
+                echo "Application health check failed!"
+                exit 1
+                '''
+            }
+        }
     }
 }

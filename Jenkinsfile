@@ -28,7 +28,7 @@ pipeline {
 
                 for i in 1 2 3 4 5
                 do
-                    if curl -f http://localhost:8096
+                    if docker compose exec -T python-app python -c "import urllib.request; urllib.request.urlopen('http://nginx:80', timeout=2)"
                     then
                         echo "Application is healthy!"
                         exit 0
